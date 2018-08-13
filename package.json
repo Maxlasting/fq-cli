@@ -1,0 +1,21 @@
+{
+  "name": "fq-cli",
+  "version": "1.0.4",
+  "description": "Fq 的脚手架工具",
+  "keyword": "vue ssr cli koa",
+  "main": "index.js",
+  "bin": {
+    "fq": "index.js"
+  },
+  "author": "Fq",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.16.0",
+    "download-git-repo": "^1.0.2",
+    "handlebars": "^4.0.11",
+    "inquirer": "^6.0.0",
+    "log-symbols": "^2.2.0",
+    "ora": "^3.0.0"
+  }
+}
