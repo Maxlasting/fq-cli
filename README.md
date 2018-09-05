@@ -6,10 +6,12 @@
 npm i -g fq-cli
 ```
 
-使用：（目前只有 vue-ssr 模版）
+使用：
 
 ```
 fq init vue-ssr [project-name]
+
+fq init vue-spa [project-name]
 ```
 
 [案例在线地址](http://demo.newfq.com)
