@@ -11,7 +11,7 @@ const shell = require('shelljs')
 
 const registry = {
   'vue-ssr': 'https://github.com:Maxlasting/vue-ssr-template#master',
-  'vue-spa': 'https://github.com/Maxlasting/vue-www-template.git#master',
+  'vue-spa': 'https://github.com:Maxlasting/vue-www-template#master',
 }
 
 const initCommands = [
@@ -68,7 +68,8 @@ const downloadPromise = (url, name, options = { clone: true }) => new Promise(as
 })
 
 const installPromise = (name) => new Promise(async (resolve, reject) => {
-  const answers = await inquirer.prompt(installCommands)
+  await inquirer.prompt(installCommands)
+  
   const spinner = ora('Installing ...')
 
   spinner.start()
@@ -88,7 +89,7 @@ const installPromise = (name) => new Promise(async (resolve, reject) => {
 
 program
 
-  .version('1.1.0', '-v, --version')
+  .version('1.1.1', '-v, --version')
 
   .command('init [query] <name>')
 
@@ -100,9 +101,12 @@ program
 
       if (!url) return console.error('Error init query!')
 
-      await downloadPromise(url, name)
-
-      await installPromise(name)
+      try {
+        await downloadPromise(url, name)
+        await installPromise(name)
+      } catch (error) {
+        console.error(error)
+      }
 
     } else {
       console.error(symbols.error, chalk.red('The project has already created!'))
