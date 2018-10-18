@@ -12,6 +12,7 @@ const shell = require('shelljs')
 const registry = {
   'vue-ssr': 'https://github.com:Maxlasting/vue-ssr-template#master',
   'vue-spa': 'https://github.com:Maxlasting/vue-www-template#master',
+  'koa': 'https://github.com:Maxlasting/last-koa-template#master'
 }
 
 const initCommands = [
@@ -68,7 +69,9 @@ const downloadPromise = (url, name, options = { clone: true }) => new Promise(as
 })
 
 const installPromise = (name) => new Promise(async (resolve, reject) => {
-  await inquirer.prompt(installCommands)
+  const { ifInstall } = await inquirer.prompt(installCommands)
+
+  if (!ifInstall) return resolve()
   
   const spinner = ora('Installing ...')
 
@@ -89,7 +92,7 @@ const installPromise = (name) => new Promise(async (resolve, reject) => {
 
 program
 
-  .version('1.1.1', '-v, --version')
+  .version('0.0.1', '-v, --version')
 
   .command('init [query] <name>')
 

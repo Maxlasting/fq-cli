@@ -1,11 +1,11 @@
 {
-  "name": "fq-cli",
-  "version": "1.1.2",
-  "description": "Fq 的脚手架工具",
-  "keyword": "vue ssr cli koa",
+  "name": "last-cli",
+  "version": "0.0.2",
+  "description": "The best cli tools!",
+  "keyword": "node vue ssr spa",
   "main": "index.js",
   "bin": {
-    "fq": "index.js"
+    "i": "index.js"
   },
   "author": "Fq",
   "license": "ISC",
